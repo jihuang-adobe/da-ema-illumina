@@ -1,3 +1,4 @@
+/* Table block */
 .table {
   --table-border-color: light-dark(var(--color-gray-200), rgb(245 242 237 / 12%));
 
@@ -69,7 +70,12 @@
   margin-top: 0.25em;
 }
 
-/* Reset button styling inside tables - links should look like plain links */
+/* Reset button styling inside table cells */
+.table table .button-container {
+  display: block;
+  margin: 0;
+}
+
 .table table a.button:any-link {
   all: unset;
   color: var(--link-color);
@@ -96,11 +102,6 @@
   color: var(--link-color);
   background: none;
   border: none;
-}
-
-.table table .button-container {
-  display: block;
-  margin: 0;
 }
 
 /* Table images - centered and constrained */
@@ -146,3 +147,40 @@
 .table.bordered table td {
   border: 1px solid var(--table-border-color);
 }
+
+/* stylelint-disable no-descending-specificity */
+
+/* Section intro links above/below the table - render as tertiary text links */
+.table-container > .default-content-wrapper .button-container {
+  margin: var(--space-s) 0;
+}
+
+.table-container > .default-content-wrapper a.button:any-link {
+  all: unset;
+  color: var(--link-color);
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: inherit;
+  display: inline;
+  white-space: normal;
+}
+
+.table-container > .default-content-wrapper a.button:any-link::after {
+  content: '\203A';
+  display: inline-block;
+  margin-inline-start: 0.3em;
+  transition: transform 0.2s;
+}
+
+.table-container > .default-content-wrapper a.button:any-link:hover {
+  text-decoration: underline;
+  background: none;
+  border: none;
+}
+
+.table-container > .default-content-wrapper a.button:any-link:hover::after {
+  transform: translateX(3px);
+}
+
+/* stylelint-enable no-descending-specificity */
