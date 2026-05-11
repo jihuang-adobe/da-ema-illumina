@@ -33,6 +33,7 @@
 .table table td {
   padding: 0.75em 0.85em;
   text-align: left;
+  vertical-align: middle;
 }
 
 .table table thead tr {
@@ -47,6 +48,7 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: light-dark(var(--color-ink), var(--color-parchment));
+  text-align: center;
 }
 
 .table table tbody tr {
@@ -65,6 +67,64 @@
 
 .table table td p + p {
   margin-top: 0.25em;
+}
+
+/* Reset button styling inside tables - links should look like plain links */
+.table table a.button:any-link {
+  all: unset;
+  color: var(--link-color);
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: inherit;
+  padding: 0;
+  margin: 0;
+  white-space: normal;
+  display: inline;
+  border: none;
+  background: none;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.table table a.button:any-link::after {
+  display: none;
+}
+
+.table table a.button:any-link:hover {
+  text-decoration: underline;
+  color: var(--link-color);
+  background: none;
+  border: none;
+}
+
+.table table .button-container {
+  display: block;
+  margin: 0;
+}
+
+/* Table images - centered and constrained */
+.table table img {
+  max-width: 120px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.table table thead img {
+  max-width: 140px;
+}
+
+/* Center non-first columns for spec values */
+.table table td:not(:first-child),
+.table table th:not(:first-child) {
+  text-align: center;
+}
+
+/* First column styling */
+.table table td:first-child {
+  font-weight: 400;
+  color: light-dark(var(--color-gray-700), var(--color-gray-300));
 }
 
 /* no header variant */
