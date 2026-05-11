@@ -26,19 +26,35 @@ main .teaser > div {
   padding: var(--space-l) var(--content-padding-inline);
 }
 
-main .teaser > div > div a {
+main .teaser > div > div a,
+main .teaser > div > div a.button:any-link {
+  all: unset;
   color: light-dark(var(--color-rust), var(--color-rust-bright));
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
   text-decoration-color: var(--color-gold);
-  padding-inline-start: 0.5em;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  white-space: normal;
   transition: color 0.3s, text-decoration-color 0.3s;
 }
 
-main .teaser > div > div a:hover {
+main .teaser > div > div a.button:any-link::after {
+  display: none;
+}
+
+main .teaser > div > div a:hover,
+main .teaser > div > div a.button:any-link:hover {
   color: var(--color-gold);
   text-decoration-color: var(--color-gold);
+  background: none;
+  border: none;
+}
+
+main .teaser > div > div .button-container {
+  margin: var(--space-s) 0 0;
 }
 
 @media (width >= 900px) {

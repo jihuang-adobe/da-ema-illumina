@@ -592,6 +592,34 @@ main .section.highlight {
   padding: var(--section-block-space) 0;
 }
 
+main > .section.hero-banner {
+  background-color: light-dark(#f5f0eb, var(--color-obsidian));
+  margin: 0;
+  padding: var(--space-xl) 0;
+}
+
+main > .section.hero-banner h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.15;
+  margin: 0 0 var(--space-m);
+}
+
+main > .section.hero-banner p {
+  font-size: var(--body-font-size-l);
+  line-height: 1.6;
+  color: light-dark(var(--color-gray-700), var(--color-gray-300));
+}
+
+main > .section.hero-banner img {
+  border-radius: 8px;
+}
+
+@media (width >= 900px) {
+  main > .section.hero-banner {
+    padding: var(--space-2xl, 64px) 0;
+  }
+}
+
 /* section-metadata style=divider: content-width (grid) border-bottom */
 main > .section.divider {
   position: relative;
