@@ -1,5 +1,9 @@
 /* Default cards */
 
+.cards {
+  margin-bottom: var(--space-xl);
+}
+
 .cards > ul {
   list-style: none;
   margin: 0;

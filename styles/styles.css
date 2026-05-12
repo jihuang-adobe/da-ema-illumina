@@ -146,7 +146,7 @@
   --header-height: var(--nav-height);
 
   /* boilerplate compatibility – map to design tokens */
-  --background-color: light-dark(var(--color-parchment), var(--color-obsidian));
+  --background-color: light-dark(#fff, var(--color-obsidian));
   --light-color: var(--color-shaded);
   --dark-color: var(--color-gray-500);
   --text-color: var(--color-text);
@@ -319,6 +319,26 @@ h1 {
 h2 {
   font-size: var(--heading-font-size-xl);
   letter-spacing: -0.015em;
+}
+
+main > .section:not(.hero-banner, .contact-cta) > .default-content-wrapper > h2,
+main > .section:not(.hero-banner, .contact-cta) .columns h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-weight: 300;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+}
+
+main > .section:not(.hero-banner, .contact-cta) > .default-content-wrapper > h2::before,
+main > .section:not(.hero-banner, .contact-cta) .columns h2::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  min-width: 4px;
+  height: 1em;
+  background-color: light-dark(#ed8b00, var(--color-gold));
+  border-radius: 2px;
 }
 
 h3 { font-size: var(--heading-font-size-m); }
@@ -599,24 +619,95 @@ main > .section.hero-banner {
 }
 
 main > .section.hero-banner h1 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  line-height: 1.15;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.2;
   margin: 0 0 var(--space-m);
+  font-weight: 700;
 }
 
 main > .section.hero-banner p {
-  font-size: var(--body-font-size-l);
-  line-height: 1.6;
+  font-size: var(--body-font-size-m);
+  line-height: 1.7;
   color: light-dark(var(--color-gray-700), var(--color-gray-300));
+  margin: 0;
 }
 
 main > .section.hero-banner img {
   border-radius: 8px;
 }
 
+@media (width >= 600px) {
+  main > .section.hero-banner {
+    padding: var(--space-xl) 0;
+  }
+
+  main > .section.hero-banner h1 {
+    font-size: clamp(2.2rem, 4vw, 3rem);
+  }
+}
+
 @media (width >= 900px) {
   main > .section.hero-banner {
     padding: var(--space-2xl, 64px) 0;
+  }
+}
+
+/* Contact CTA section */
+main > .section.contact-cta {
+  background-color: light-dark(#f5f2ed, var(--color-obsidian));
+  margin: 0;
+  padding: 80px 0;
+  text-align: center;
+}
+
+main > .section.contact-cta h2 { /* stylelint-disable-line no-descending-specificity */
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 300;
+  margin-bottom: var(--space-m);
+  color: light-dark(var(--color-gray-700), var(--color-gray-200));
+}
+
+main > .section.contact-cta p {
+  max-width: 680px;
+  margin-inline: auto;
+  color: light-dark(var(--color-gray-600), var(--color-gray-300));
+}
+
+main > .section.contact-cta .button-container {
+  display: inline-block;
+  margin: var(--space-s) var(--space-xs);
+}
+
+main > .section.contact-cta a.button:any-link {
+  border-radius: 24px;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+main > .section.contact-cta a.button.primary:any-link {
+  background: linear-gradient(135deg, #5b4fc4, #7c3aed);
+  border-color: transparent;
+  color: #fff;
+}
+
+main > .section.contact-cta a.button.primary:any-link:hover {
+  background: linear-gradient(135deg, #4a3fb3, #6b2dd6);
+}
+
+main > .section.contact-cta a.button:not(.primary):any-link {
+  background: transparent;
+  border: 2px solid #5b4fc4;
+  color: #5b4fc4;
+}
+
+main > .section.contact-cta a.button:not(.primary):any-link:hover {
+  background: rgb(91 79 196 / 8%);
+}
+
+@media (width >= 900px) {
+  main > .section.contact-cta {
+    padding: 100px 0;
   }
 }
 
@@ -663,7 +754,7 @@ main > .section.gradient a:any-link {
   text-decoration-color: rgb(255 255 255 / 40%);
 }
 
-main > .section.gradient a.button:any-link,
+main > .section.gradient a.button:any-link, /* stylelint-disable-line no-descending-specificity */
 main > .section.gradient button.button {
   border-color: var(--color-parchment);
   background-color: transparent;
@@ -672,7 +763,7 @@ main > .section.gradient button.button {
   box-shadow: none;
 }
 
-main > .section.gradient a.button:any-link:hover,
+main > .section.gradient a.button:any-link:hover, /* stylelint-disable-line no-descending-specificity */
 main > .section.gradient button.button:hover {
   background-color: var(--color-parchment);
   border-color: var(--color-parchment);

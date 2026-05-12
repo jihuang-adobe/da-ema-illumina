@@ -106,14 +106,20 @@
 
 /* Table images - centered and constrained */
 .table table img {
-  max-width: 120px;
+  max-width: 150px;
   height: auto;
   display: block;
   margin: 0 auto;
 }
 
+@media (width >= 900px) {
+  .table table img {
+    max-width: 180px;
+  }
+}
+
 .table table thead img {
-  max-width: 140px;
+  max-width: 180px;
 }
 
 /* Center non-first columns for spec values */
@@ -150,7 +156,29 @@
 
 /* stylelint-disable no-descending-specificity */
 
-/* Section intro links above/below the table - render as tertiary text links */
+/* Section intro text above the table */
+.table-container > .default-content-wrapper {
+  max-width: var(--grid-container-width);
+}
+
+.table-container > .default-content-wrapper h2 {
+  margin-top: 0;
+}
+
+
+.table-container > .default-content-wrapper p {
+  color: light-dark(var(--color-gray-600), var(--color-gray-300));
+  line-height: 1.6;
+  margin: 0.5em 0;
+}
+
+@media (width < 900px) {
+  .table-container > .default-content-wrapper {
+    max-width: 100%;
+  }
+}
+
+/* Section intro links - render as tertiary text links */
 .table-container > .default-content-wrapper .button-container {
   margin: var(--space-s) 0;
 }
@@ -181,6 +209,17 @@
 
 .table-container > .default-content-wrapper a.button:any-link:hover::after {
   transform: translateX(3px);
+}
+
+/* Footnotes section below the table */
+.table-container > .default-content-wrapper:last-of-type:not(:first-of-type) {
+  background-color: light-dark(#f5f2ed, var(--color-card-dark));
+  border-radius: 8px;
+  padding: var(--space-l) var(--space-xl);
+  margin-top: var(--space-l);
+  font-size: var(--body-font-size-s);
+  color: light-dark(var(--color-gray-700), var(--color-gray-300));
+  line-height: 1.7;
 }
 
 /* stylelint-enable no-descending-specificity */
